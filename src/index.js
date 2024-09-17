@@ -1,5 +1,6 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
+import { scroll } from "framer-motion/dom";
 import {
   createHashRouter,
   createRoutesFromElements,
@@ -16,26 +17,43 @@ import ErrorPage from "./routes/error-page";
 import Stats from "./routes/Stats";
 import Support from "./routes/Support";
 import About from "./routes/About";
+import Policy from "./routes/Policy";
+import Footer from "./components/Footer";
+import SmoothScroll from "./utilities/scroll";
+const progressWheel = document.querySelector(".progress");
+
+scroll((progress) => {
+  progressWheel.style.strokeDasharray = `${progress}, 1`;
+});
 
 const AppLayout = () => (
-  <>
-    <Sidebar />
-    <Outlet />
-  </>
+  <div className="fadein">
+    <SmoothScroll>
+      <Sidebar />
+      <div>
+        <Outlet />
+      </div>
+      <Footer />
+    </SmoothScroll>
+  </div>
 );
 
 const router = createHashRouter(
   createRoutesFromElements(
-    <Route element={<AppLayout />} errorElement={<ErrorPage />}>
+    <>
       <Route errorElement={<ErrorPage />}>
-        <Route index path="/" element={<Home />} />
-        <Route exact path="/statistics" element={<Stats />} />
-        <Route exact path="/products" element={<Products />} />
-        <Route exact path="/support" element={<Support />} />
-        <Route exact path="/about" element={<About />} />
-        <Route />
+        <Route element={<AppLayout />} errorElement={<ErrorPage />}>
+          <Route index element={<Home />} />
+          <Route exact path="/statistics" element={<Stats />} />
+          <Route exact path="/products" element={<Products />} />
+          <Route exact path="/support" element={<Support />} />
+          <Route exact path="/about" element={<About />} />
+
+          <Route />
+        </Route>
+        <Route exact path="/legalterms" element={<Policy />} />
       </Route>
-    </Route>
+    </>
   )
 );
 

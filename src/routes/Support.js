@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Accordion from "../components/Accordion";
 import { CalendarDaysIcon, HandRaisedIcon } from "@heroicons/react/24/outline";
 import Contactus from "../components/Contactus";
-import Footer from "../components/Footer";
 import Swal from "sweetalert2";
 import Location from "../components/Location";
 
@@ -75,6 +74,7 @@ function Support() {
     } else {
       console.log("please input a valid email address");
       invalidAlert();
+      // failed();
     }
   };
 
@@ -101,7 +101,7 @@ function Support() {
               Availability hours: Monday - Friday, 9am to 5pm
             </h6>
             <p itemprop="telephone" className="font-bold text-lg text-gray-700">
-              <a href="tel:+254712123456">(+254) 712 123456</a>
+              <a href="tel:+254 722 753364">(+254) 722 753364</a>
             </p>
           </div>
           {/* email contact */}
@@ -135,7 +135,7 @@ function Support() {
               <p className="mt-4 text-lg leading-8 text-gray-300">
                 Subscribe to our newsletter. Enter your email
               </p>
-              <div className="mt-6 flex flex-col space-y-6 max-w-md gap-x-4">
+              <div className="mt-6 mx-auto flex flex-col space-y-6 max-w-md gap-x-4">
                 <label htmlFor="email-address" className="sr-only">
                   Email address
                 </label>
@@ -170,8 +170,7 @@ function Support() {
                   Weekly articles
                 </dt>
                 <dd className="mt-2 leading-7 text-gray-400">
-                  Non laboris consequat cupidatat laborum magna. Eiusmod non
-                  irure cupidatat duis commodo amet.
+                  Get weekly articles and insight on new products and services.
                 </dd>
               </div>
               <div className="flex flex-col items-start">
@@ -183,8 +182,8 @@ function Support() {
                 </div>
                 <dt className="mt-4 font-semibold text-white">No spam</dt>
                 <dd className="mt-2 leading-7 text-gray-400">
-                  Officia excepteur ullamco ut sint duis proident non
-                  adipisicing. Voluptate incididunt anim.
+                  Be ahead of everyone else with product updates and tips.
+                  Unsubscribe anytime.
                 </dd>
               </div>
             </dl>
@@ -217,7 +216,6 @@ function Support() {
       </div>
       <Accordion />
       <Contactus />
-      <Footer />
     </>
   );
 }

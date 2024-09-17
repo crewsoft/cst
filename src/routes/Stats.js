@@ -1,7 +1,5 @@
 import React from "react";
 import Bargraph from "../utilities/Bargraph";
-import Footer from "../components/Footer";
-//
 
 function Stats() {
   const stats = [
@@ -57,7 +55,6 @@ function Stats() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

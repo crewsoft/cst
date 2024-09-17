@@ -1,4 +1,5 @@
 import { Disclosure } from "@headlessui/react";
+import { Link } from "react-router-dom";
 
 export default function Accordion() {
   return (
@@ -30,9 +31,17 @@ export default function Accordion() {
                 </svg>
               </Disclosure.Button>
               <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                If you're unhappy with your purchase for any reason, email us
-                within the first 90 days and we'll refund you in full, no
-                questions asked.
+                <div>
+                  <p>
+                    At Crewsoft Technologies, we strive to provide exceptional
+                    software solutions and customer satisfaction. However, we
+                    understand that circumstances may arise where a refund is
+                    necessary. You can read our refund policy{" "}
+                    <Link to="/legalterms" className="text-blue-500">
+                      here.
+                    </Link>
+                  </p>
+                </div>
               </Disclosure.Panel>
             </>
           )}
